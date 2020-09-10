@@ -11,13 +11,15 @@ nav ul {
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-nav ul li {
-  padding: 1rem;
-}
-
 nav a {
   text-decoration: none;
+  display: inline-block;
+  padding: 1rem;
 }
 .main {
   padding: 1rem;
+}
+
+nav a.active {
+  background-color: #eee;
 }

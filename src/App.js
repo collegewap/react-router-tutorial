@@ -1,5 +1,6 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, NavLink as Link } from "react-router-dom";
+import Dashboard from "./Dashboard";
 
 function App() {
   return (
@@ -7,13 +8,19 @@ function App() {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" activeClassName="active" end>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="dashboard">Dashboard</Link>
+            <Link to="dashboard" activeClassName="active">
+              Dashboard
+            </Link>
           </li>
           <li>
-            <Link to="about">About</Link>
+            <Link to="about" activeClassName="active">
+              About
+            </Link>
           </li>
         </ul>
       </nav>
@@ -21,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="about" element={<About />}></Route>
+          <Route path="dashboard" element={<Dashboard />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </div>
