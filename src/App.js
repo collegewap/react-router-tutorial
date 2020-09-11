@@ -1,6 +1,9 @@
 import React from "react";
 import { NavLink as Link, Route, Routes } from "react-router-dom";
 import Dashboard from "./Dashboard";
+import LoginPage from "./LoginPage";
+import PrivateRoute from "./PrivateRoute";
+import ProtectedPage from "./ProtectedPage";
 import RouteAsObj from "./RouteAsObj";
 import Search from "./Search";
 
@@ -34,6 +37,16 @@ function App() {
               Search
             </Link>
           </li>
+          <li>
+            <Link to="/public" activeClassName="active">
+              Public Page
+            </Link>
+          </li>
+          <li>
+            <Link to="/protected" activeClassName="active">
+              Protected Page
+            </Link>
+          </li>
         </ul>
       </nav>
       <div className="main">
@@ -44,6 +57,12 @@ function App() {
           <Route path="dashboard/*" element={<Dashboard />}></Route>
           <Route path="object_route/*" element={<RouteAsObj />}></Route>
           <Route path="search" element={<Search />}></Route>
+          <Route path="public" element={<PublicPage />}></Route>
+          <PrivateRoute
+            path="protected"
+            element={<ProtectedPage />}
+          ></PrivateRoute>
+          <Route path="login" element={<LoginPage />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </div>
@@ -56,6 +75,9 @@ export const Home = () => {
 };
 export const About = () => {
   return <div>This is the page where you put details about yourself</div>;
+};
+export const PublicPage = () => {
+  return <div>This page can be accessed by anyone</div>;
 };
 export const NotFound = () => {
   return <div>This is a 404 page</div>;
