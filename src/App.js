@@ -1,11 +1,19 @@
+import loadable from "@loadable/component";
 import React from "react";
 import { NavLink as Link, Route, Routes } from "react-router-dom";
-import Dashboard from "./Dashboard";
 import LoginPage from "./LoginPage";
 import PrivateRoute from "./PrivateRoute";
 import ProtectedPage from "./ProtectedPage";
 import RouteAsObj from "./RouteAsObj";
 import Search from "./Search";
+
+const Loading = () => {
+  return <div>Loading...</div>;
+};
+
+const Dashboard = loadable(() => import("./Dashboard.js"), {
+  fallback: <Loading />,
+});
 
 function App() {
   return (
