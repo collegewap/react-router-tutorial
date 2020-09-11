@@ -1,7 +1,8 @@
 import React from "react";
-import { Routes, Route, NavLink as Link } from "react-router-dom";
+import { NavLink as Link, Route, Routes } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import RouteAsObj from "./RouteAsObj";
+import Search from "./Search";
 
 function App() {
   return (
@@ -14,12 +15,12 @@ function App() {
             </Link>
           </li>
           <li>
-            <Link to="dashboard" activeClassName="active">
+            <Link to="/dashboard" activeClassName="active">
               Dashboard
             </Link>
           </li>
           <li>
-            <Link to="about" activeClassName="active">
+            <Link to="/about" activeClassName="active">
               About
             </Link>
           </li>
@@ -28,15 +29,21 @@ function App() {
               Route as Object
             </Link>
           </li>
+          <li>
+            <Link to="/search" activeClassName="active">
+              Search
+            </Link>
+          </li>
         </ul>
       </nav>
       <div className="main">
         <Routes>
           <Route path="/" element={<Home />}></Route>
+
           <Route path="about" element={<About />}></Route>
           <Route path="dashboard/*" element={<Dashboard />}></Route>
           <Route path="object_route/*" element={<RouteAsObj />}></Route>
-
+          <Route path="search" element={<Search />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </div>
