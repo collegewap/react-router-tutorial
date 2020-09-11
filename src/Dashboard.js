@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Link, Route, useParams } from "react-router-dom";
+import { Routes, Link, Route, useParams, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -36,7 +36,6 @@ export const Orders = () => {
     <>
       <h2>Orders</h2>
       <ul className="orders">
-        {/* Loop through the orders array and display link to order details */}
         {orderIds.map((orderId) => {
           return (
             <li key={orderId}>
@@ -55,8 +54,22 @@ export const Quotes = () => {
 };
 export const OrderDetails = () => {
   const params = useParams();
+  const navigate = useNavigate();
 
-  return <h2>Details of order {params.orderId}</h2>;
+  const onBackClick = (e) => {
+    e.preventDefault();
+    // navigate(-1);
+    navigate("/dashboard/orders");
+  };
+
+  return (
+    <>
+      <h2>Details of order {params.orderId}</h2>
+      <a href="#" onClick={onBackClick}>
+        Back to Orders
+      </a>
+    </>
+  );
 };
 
 export default Dashboard;
