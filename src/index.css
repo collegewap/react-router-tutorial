@@ -23,3 +23,20 @@ nav a {
 nav a.active {
   background-color: #eee;
 }
+.main {
+  padding: 1rem;
+}
+
+.main ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.main ul li {
+  margin-right: 1rem;
+}
+
+.dashboard {
+  padding: 1rem 0;
+}
