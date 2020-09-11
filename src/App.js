@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route, NavLink as Link } from "react-router-dom";
 import Dashboard from "./Dashboard";
+import RouteAsObj from "./RouteAsObj";
 
 function App() {
   return (
@@ -22,6 +23,11 @@ function App() {
               About
             </Link>
           </li>
+          <li>
+            <Link to="/object_route" activeClassName="active">
+              Route as Object
+            </Link>
+          </li>
         </ul>
       </nav>
       <div className="main">
@@ -29,6 +35,8 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="about" element={<About />}></Route>
           <Route path="dashboard/*" element={<Dashboard />}></Route>
+          <Route path="object_route/*" element={<RouteAsObj />}></Route>
+
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </div>
