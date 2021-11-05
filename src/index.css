@@ -49,3 +49,12 @@ ul.orders {
 .orders li {
   padding: 0.5rem 0;
 }
+
+ul.invoices {
+  flex-direction: column;
+  border: 1px solid;
+  padding: 0.5rem;
+}
+.invoices li {
+  padding: 0.5rem 0;
+}

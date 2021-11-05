@@ -1,6 +1,7 @@
 import loadable from "@loadable/component";
 import React from "react";
 import { NavLink as Link, Route, Routes } from "react-router-dom";
+import Invoices, { Invoice } from "./Invoices";
 import LoginPage from "./LoginPage";
 import PrivateRoute from "./PrivateRoute";
 import ProtectedPage from "./ProtectedPage";
@@ -55,6 +56,11 @@ function App() {
               Protected Page
             </Link>
           </li>
+          <li>
+            <Link to="/invoices" activeClassName="active">
+              Invoices
+            </Link>
+          </li>
         </ul>
       </nav>
       <div className="main">
@@ -71,7 +77,15 @@ function App() {
             element={<ProtectedPage />}
           ></PrivateRoute>
           <Route path="login" element={<LoginPage />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
+          <Route path="invoices" element={<Invoices />}>
+            <Route
+              index
+              element={<p>Please select an invoice above</p>}
+            ></Route>
+            <Route path=":invoiceId" element={<Invoice />} />
+          </Route>
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </div>
