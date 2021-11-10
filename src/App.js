@@ -72,11 +72,15 @@ function App() {
           <Route path="object_route/*" element={<RouteAsObj />}></Route>
           <Route path="search" element={<Search />}></Route>
           <Route path="public" element={<PublicPage />}></Route>
-          <PrivateRoute
+          <Route
             path="protected"
-            component={ProtectedPage}
+            element={
+              <PrivateRoute>
+                <ProtectedPage x={1} />
+              </PrivateRoute>
+            }
             x={1}
-          ></PrivateRoute>
+          ></Route>
           <Route path="login" element={<LoginPage />}></Route>
           <Route path="invoices" element={<Invoices />}>
             <Route

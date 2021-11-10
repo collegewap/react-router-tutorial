@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Navigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { fakeAuth } from "./fakeAuth";
 
 /**
@@ -7,17 +7,13 @@ import { fakeAuth } from "./fakeAuth";
  * If authenticated, renders the passed element
  * If not authenticated, redirects the user to Login page.
  */
-const PrivateElement = ({ component: Component, ...props }) => {
+const PrivateElement = ({ children }) => {
   let location = useLocation();
   return fakeAuth.isAuthenticated ? (
-    <Component {...props} />
+    children
   ) : (
     <Navigate to="/login" state={{ from: location }} />
   );
 };
 
-function PrivateRoute({ component, ...rest }) {
-  return <Route element={<PrivateElement component={component} {...rest} />} />;
-}
-
-export default PrivateRoute;
+export default PrivateElement;
