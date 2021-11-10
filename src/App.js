@@ -74,7 +74,8 @@ function App() {
           <Route path="public" element={<PublicPage />}></Route>
           <PrivateRoute
             path="protected"
-            element={<ProtectedPage />}
+            component={ProtectedPage}
+            x={1}
           ></PrivateRoute>
           <Route path="login" element={<LoginPage />}></Route>
           <Route path="invoices" element={<Invoices />}>
