@@ -79,7 +79,6 @@ function App() {
                 <ProtectedPage x={1} />
               </PrivateRoute>
             }
-            x={1}
           ></Route>
           <Route path="login" element={<LoginPage />}></Route>
           <Route path="invoices" element={<Invoices />}>
